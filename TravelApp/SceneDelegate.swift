@@ -21,7 +21,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         guard let Sence = (scene as? UIWindowScene) else { return }
         window?.windowScene = Sence
-        let vc  = homeViewController()
+       let vc  = tabarViewController()
+//        let vc  = homeViewController()
+       
         window?.rootViewController = vc
         window?.makeKeyAndVisible()
     }

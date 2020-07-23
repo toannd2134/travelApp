@@ -13,7 +13,7 @@ class topCollectionViewCell: UICollectionViewCell {
    
     let ferewellLabel : UILabel  = {
         let label  = UILabel()
-        label.text = "Xin Chao Toan !"
+        label.text = "Xin chào Toàn!"
         label.numberOfLines = 0
         label.font = UIFont.mainFont(font: UIFont.fontChoice.Helvetica, size: 27)
         return label
@@ -25,14 +25,14 @@ class topCollectionViewCell: UICollectionViewCell {
     }()
     let ferewellLabel2 : UILabel  = {
         let label  = UILabel()
-        label.text = "chao mung  ban cho lai. Ban muon di dau hom nay ? "
+        label.text = "chào mừng bạn đã trở lại . hôm nay bạn muốn đi dâu "
         label.numberOfLines = 0
         label.font = UIFont.mainFont(font: UIFont.fontChoice.Helvetica, size: 16)
         return label
     }()
     let choiceLabel  : UILabel  = {
         let label  = UILabel()
-        label.text = "Hay chon noi ban thich!"
+        label.text = "Hãy chọn nơi bạn thích"
         label.numberOfLines = 0
         label.font = UIFont.mainFont(font: UIFont.fontChoice.Helvetica, size: 16)
         return label
@@ -66,7 +66,7 @@ class topCollectionViewCell: UICollectionViewCell {
    
     let localTexField : UITextField = {
         let texFiled = UITextField()
-        texFiled.placeholder = "Tim noi ban muon den "
+        texFiled.placeholder = "Tìm nơi bạn muốn đến "
         texFiled.leftView = UIImageView(image: UIImage(named: "point"))
         texFiled.leftViewMode = .always
         texFiled.backgroundColor = .clear
@@ -75,12 +75,14 @@ class topCollectionViewCell: UICollectionViewCell {
     let tourColectionView :UICollectionView = {
        let layout = UICollectionViewFlowLayout()
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        layout.scrollDirection = .horizontal
+        layout.scrollDirection = .vertical
         collection.register(tourCollectionViewCell.self, forCellWithReuseIdentifier: "tourCell")
+         collection.register(headerCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "headerView")
         return collection
         
         
     }()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         addStackVIew()
@@ -89,6 +91,8 @@ class topCollectionViewCell: UICollectionViewCell {
         self.backgroundView = UIImageView(image: UIImage(named: "bacground"))
         tourColectionView.delegate = self
         tourColectionView.dataSource = self
+        tourColectionView.backgroundColor = .clear
+        tourColectionView.bounces = false
         
     }
     func addStackVIew(){
@@ -96,7 +100,7 @@ class topCollectionViewCell: UICollectionViewCell {
         stackViewButton.alignment = .fill
         stackViewButton.distribution = .fillEqually
         stackViewButton.axis = .horizontal
-        stackViewButton.spacing = 5
+        stackViewButton.spacing = 30
         stackViewButton.addArrangedSubview(cafeButton)
         stackViewButton.addArrangedSubview(moutainButton)
         stackViewButton.addArrangedSubview(campButton)
@@ -104,9 +108,11 @@ class topCollectionViewCell: UICollectionViewCell {
     }
     
     func addSubView() {
+        
         self.sv([ferewellLabel,ferewellLabel2,userImage,choiceLabel,stackViewButton,localTexField,tourColectionView])
       }
     func layout(){
+        
         self.layout(
         90,
         |-20-ferewellLabel-20-userImage.width(20)-20-| ~ 20,
@@ -119,7 +125,7 @@ class topCollectionViewCell: UICollectionViewCell {
         30,
         |-20-localTexField-20-| ~ 30,
         30,
-        |-20-tourColectionView-20-| ~ 400
+        |-0-tourColectionView-0-| ~ 500
         
         )
     }
@@ -127,16 +133,27 @@ class topCollectionViewCell: UICollectionViewCell {
 }
 extension topCollectionViewCell : UICollectionViewDelegate ,UICollectionViewDataSource ,UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return 1
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: UIScreen.main.bounds.width-40, height: 400)
+        return CGSize(width: UIScreen.main.bounds.width, height: 400)
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "tourCell", for: indexPath) as! tourCollectionViewCell
-        cell.backgroundColor = .red
+        cell.backgroundColor = .clear
         return cell
     }
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+              let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "headerView", for: indexPath) as! headerCollectionReusableView
+        header.headerview.backgroundColor = UIColor.headerColor()
+        header.headerName.text = "Tour danh cho ban "
+              return header
+          }
+       func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: UIScreen.screenWidth(), height: 30)
+        }
+   
+ 
     
     
 }
