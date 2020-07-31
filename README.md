@@ -1,8 +1,11 @@
 # travelApp
 
-App Travel  :
+App Travel  : 
+
 Miêu tả : là 1 app có thể đặt đươc chuyến du lịch và vé máy bay 
+
 Ngôn ngữ sử dụng : swift
+
 nhũng thư viện : Stevia,Firebase
 
 
