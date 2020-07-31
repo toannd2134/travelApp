@@ -66,6 +66,7 @@ class CheckingViewController: UIViewController {
         view.nameViewLabel.text = "so luong nguoi"
         view.textField.placeholder = "so luong"
        
+       
         return view
     }()
     let payButton : UIButton = {
@@ -77,7 +78,7 @@ class CheckingViewController: UIViewController {
         button.addTarget(self, action: #selector(pushPay), for: .touchUpInside)
         return button
     }()
-    
+     var selectedTextField: UITextField?
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -88,7 +89,35 @@ class CheckingViewController: UIViewController {
         setupPickerView()
         setupStartDatepicker()
         setupEndDatepicker()
+        NotificationCenter.default.addObserver(self, selector: #selector(willShowKeyboard1(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        //đăng ký nhận thông báo khui có sự kiện ẩn bàn phím
+        NotificationCenter.default.addObserver(self, selector: #selector(willHideKeyboard1(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        startPointView.textField.delegate = self
+        endPointView.textField.delegate = self
+        DateStartView.textField.delegate = self
+        DateEndView.textField.delegate = self
+        
+        
     }
+    @objc func willShowKeyboard1( _ notification: NSNotification ){
+           // tính kích thước bàn phím
+           if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+               // nếu mà y của textField mà lớn hơn view-eight của bàn phím
+               if let selectedTextField = selectedTextField {
+                   if selectedTextField.frame.origin.y > view.frame.height - keyboardSize.height - selectedTextField.bounds.height {
+                       
+                       self.view.frame.origin.y = 0
+                       // đẩy view lên một khoảng là chiều cao bàn phím
+                       self.view.frame.origin.y -= keyboardSize.height
+                   }
+               }
+           }
+       }
+   
+       //hàm này sẽ xử lý khi ẩn bàn phím
+       @objc func willHideKeyboard1(_ notification: NSNotification){
+           self.view.frame.origin.y = 0
+       }
     func setupEndDatepicker() {
         dateEndPicker.datePickerMode = .date
         // gan datePicker
@@ -143,8 +172,9 @@ class CheckingViewController: UIViewController {
        
     }
     @objc func setDateEnd() {
+        
         DateEndView.textField.text = ConvertHelper.stringFromDate(date: dateStartPicker.date, format: "dd/MM/yyyy")
-          self.view.endEditing(true)
+        peopleView.textField.becomeFirstResponder()
        
     }
     func setupPickerView(){
@@ -226,6 +256,7 @@ class CheckingViewController: UIViewController {
 
     
         )
+       
     }
     func setupNavigation(){
         self.navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
@@ -279,5 +310,34 @@ class ConvertHelper {
         let string = formatter.string(from: date)
         return string
     }
+}
+extension CheckingViewController : UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        case startPointView.textField:
+            endPointView.textField.becomeFirstResponder()
+        case endPointView.textField:
+            DateStartView.textField.becomeFirstResponder()
+        case DateStartView.textField:
+            DateEndView.textField.becomeFirstResponder()
+        case DateEndView.textField :
+            peopleView.textField.becomeFirstResponder()
+        default:
+            textField.resignFirstResponder()
+        }
+        textField.resignFirstResponder()
+        return true
+    }
+
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+           selectedTextField = textField
+           return true
+       }
+       
+       func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+           print(string)
+           return true
+           
+       }
 }
 

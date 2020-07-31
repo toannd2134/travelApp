@@ -68,7 +68,7 @@ class ViewController: UIViewController {
        
         button.setTitleColor(.red, for: .normal)
            return button
-       }()
+    }()
     var selectedTextField: UITextField?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,8 +78,8 @@ class ViewController: UIViewController {
         EmailTextFiled.delegate = self
         PasswordTexFiled.delegate  = self
         NotificationCenter.default.addObserver(self, selector: #selector(willShowKeyboard(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-              //đăng ký nhận thông báo khui có sự kiện ẩn bàn phím
-              NotificationCenter.default.addObserver(self, selector: #selector(willHideKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
+        //đăng ký nhận thông báo khui có sự kiện ẩn bàn phím
+        NotificationCenter.default.addObserver(self, selector: #selector(willHideKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     func addSudView(){
         view.sv([LogoImage,signinLabel,EmailTextFiled,PasswordTexFiled,SiginButton,signUP,SignUPButton])
