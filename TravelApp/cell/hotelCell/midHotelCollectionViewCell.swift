@@ -9,7 +9,7 @@
 import UIKit
 import Stevia
 class midHotelCollectionViewCell: UICollectionViewCell {
-   
+   var delegate : cellDelegate?
     let midColection : UICollectionView   = {
        let layout  = UICollectionViewFlowLayout()
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -51,6 +51,9 @@ extension midHotelCollectionViewCell : UICollectionViewDelegateFlowLayout , UICo
         cell.nameLabel.text = data[numberSection].local[indexPath.row].name
         cell.diriptionLabel.text = data[numberSection].local[indexPath.row].decription
         return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.colCategory(indexPath)
     }
     
     

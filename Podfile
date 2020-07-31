@@ -7,4 +7,12 @@ target 'TravelApp' do
 
   # Pods for TravelApp
      pod 'SteviaLayout'
+     pod 'GoogleMaps'
+     pod 'GooglePlaces'
+     pod 'FSCalendar'
+     pod 'Segmentio'
+     pod 'Firebase/Core'
+     pod 'Firebase/Auth'
+     pod 'Firebase/Firestore'
+     
 end

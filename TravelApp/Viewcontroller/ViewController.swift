@@ -8,6 +8,7 @@
 
 import UIKit
 import Stevia
+import Firebase
 class ViewController: UIViewController {
     let LogoImage : UIImageView = {
          let image = UIImageView()
@@ -18,6 +19,7 @@ class ViewController: UIViewController {
     let signinLabel : UILabel  = {
         let label = UILabel()
         label.text   = "Sign in"
+        label.textAlignment = .center
         label.font = UIFont(name: "Athelas", size: 37)
         return label
     }()
@@ -45,12 +47,13 @@ class ViewController: UIViewController {
         let button = UIButton()
         button.backgroundColor = .mainColor()
         button.layer.cornerRadius = 25
-        button.setTitle("Dang nhap", for: .normal)
+        button.setTitle("Đăng nhập", for: .normal)
+         button.addTarget(self, action: #selector(Signin), for: .touchUpInside)
         return button
     }()
     let signUP : UILabel  = {
         let label = UILabel()
-        label.text   = "dang ki"
+        label.text   = "đăng kí"
         label.textAlignment = .right
         label.font = UIFont(name: "Athelas", size: 20)
         return label
@@ -59,16 +62,24 @@ class ViewController: UIViewController {
            let button = UIButton()
            button.backgroundColor = .clear
            button.layer.cornerRadius = 25
-           button.setTitle("tai day", for: .normal)
-        
+        button.addTarget(self, action: #selector(SignUP), for: .touchUpInside
+        )
+           button.setTitle("tại đây", for: .normal)
+       
         button.setTitleColor(.red, for: .normal)
            return button
        }()
+    var selectedTextField: UITextField?
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.backgroundColor()
         addSudView()
         layout()
+        EmailTextFiled.delegate = self
+        PasswordTexFiled.delegate  = self
+        NotificationCenter.default.addObserver(self, selector: #selector(willShowKeyboard(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+              //đăng ký nhận thông báo khui có sự kiện ẩn bàn phím
+              NotificationCenter.default.addObserver(self, selector: #selector(willHideKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     func addSudView(){
         view.sv([LogoImage,signinLabel,EmailTextFiled,PasswordTexFiled,SiginButton,signUP,SignUPButton])
@@ -76,20 +87,74 @@ class ViewController: UIViewController {
     func layout(){
         view.layout(
             50,
-            |-100-LogoImage.centerHorizontally().width(200)-100-|,
-            32,
-            |-150-signinLabel.centerHorizontally()-150-| ~ 50,
-            50,
+            |-100-LogoImage.centerHorizontally().width(100)-100-|,
+            20,
+            |-0-signinLabel.centerHorizontally()-0-| ~ 50,
+            20,
             |-50-EmailTextFiled-50-| ~ 50,
             20,
             |-50-PasswordTexFiled-50-| ~ 50,
-            50,
+            20,
             |-50-SiginButton-50-| ~  50,
             10,
-            |-250-signUP-05-SignUPButton-30-| ~ 20
+            |-220-signUP-05-SignUPButton-30-| ~ 20
         )
     }
+    @objc func Signin (){
+        guard let email = EmailTextFiled.text ,let password = PasswordTexFiled.text else{return}
+        FireBaseManager.Share.SignIn(email: email, password: password) { (sucess) in
+            if sucess {
+                let vc = TabarViewController()
+                vc.modalPresentationStyle = .fullScreen
+                self.present(vc, animated: true, completion: nil)
+               
+                
+            }
+        }
+    }
+    @objc func SignUP(){
+        let vc = RegisterViewController()
+        self.present(vc, animated: true, completion: nil)
+    }
+    @objc func willShowKeyboard(_ notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if let selectedTextField = selectedTextField {
+                if selectedTextField.frame.origin.y > view.frame.height - keyboardSize.height - selectedTextField.bounds.height {
+                    
+                    self.view.frame.origin.y = 0
+                    // đẩy view lên một khoảng là chiều cao bàn phím
+                    self.view.frame.origin.y -= keyboardSize.height
+                }
+            }
+            
+        }
+        
+    }
+    @objc func willHideKeyboard(_ notification: NSNotification) {
+        self.view.frame.origin.y = 0
+    }
 
-
+}
+extension ViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        case EmailTextFiled:
+            PasswordTexFiled.becomeFirstResponder()
+        default:
+            textField.resignFirstResponder()
+        }
+        textField.resignFirstResponder()
+        return true
+    }
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        selectedTextField = textField
+        return true
+    }
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        print(string)
+        return true
+        
+    }
+    
 }
 

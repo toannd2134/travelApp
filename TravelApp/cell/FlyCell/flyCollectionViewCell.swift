@@ -9,6 +9,7 @@
 import UIKit
 import Stevia
 class topflyCollectionViewCell: UICollectionViewCell {
+    var delegate : cellDelegate?
     let insideColection : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let colection = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -51,6 +52,9 @@ extension topflyCollectionViewCell : UICollectionViewDelegateFlowLayout,UICollec
         cell.nameLabel.text = data[indexPath.section].local[indexPath.row].name
         
         return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.colCategory(indexPath)
     }
     
    

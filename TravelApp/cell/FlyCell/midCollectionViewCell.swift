@@ -9,7 +9,7 @@
 import UIKit
 import Stevia
 class midCollectionViewCell: UICollectionViewCell {
-    
+    var delegate : cellDelegate?
     let mainColectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let colection = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -53,6 +53,8 @@ extension midCollectionViewCell : UICollectionViewDelegateFlowLayout , UICollect
         return cell
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+           delegate?.colCategory(indexPath)
+       }
     
 }

@@ -27,19 +27,27 @@ class tourInsideCollectionViewCell: UICollectionViewCell {
         label.numberOfLines = 0
         return label
     }()
+    let bacgroundImg : UIImageView = {
+        let image = UIImageView()
+        
+        return image
+    }()
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.sv([rateImage,nameLable,dicriptionLabel])
-        self.layout(
-        260,
+        self.sv(bacgroundImg
+        )
+        self.layout(0,
+        |-0-bacgroundImg-0-|,0)
+        bacgroundImg.sv([rateImage,nameLable,dicriptionLabel])
+        bacgroundImg.layout(
+        280,
        |-20-rateImage-230-| ,20
         
         )
-        self.layout(
-        260,
+        bacgroundImg.layout(
+        280,
         |-100-nameLable-20-|,
-        0,
-        |-100-dicriptionLabel-20-|,20
+        |-100-dicriptionLabel-50-|
         )
     }
     required init?(coder: NSCoder) {

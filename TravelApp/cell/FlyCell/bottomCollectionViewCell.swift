@@ -9,6 +9,7 @@
 import UIKit
 import Stevia
 class bottomCollectionViewCell: UICollectionViewCell {
+    var delegate : cellDelegate?
     let mainColection : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let collection  = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -51,6 +52,8 @@ extension bottomCollectionViewCell : UICollectionViewDelegateFlowLayout ,UIColle
         cell.nameLabel.text = dataUser[numberSection].local[indexPath.row].name
         return cell
     }
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+           delegate?.colCategory(indexPath)
+       }
     
 }

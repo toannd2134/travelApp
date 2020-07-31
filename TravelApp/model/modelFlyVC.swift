@@ -20,19 +20,19 @@ struct totalData {
 }
 
 func flyData()->[totalData]{
-    var section1 = totalData(nameSection: "Dia diem pho bien", local: [
+    var section1 = totalData(nameSection: "Địa điểm phổ biến", local: [
         local(name: "Rom", imageLocal: UIImage(named: "rom"), decription: nil),
         local(name: "Monaco", imageLocal: UIImage(named: "rom2"), decription: nil),
         local(name: "Rom", imageLocal: UIImage(named: "rom3"), decription: nil),
         
     ])
-    var section2 = totalData(nameSection: "nhung dia diem hot", local: [
-      local(name: "Tokyo", imageLocal: UIImage(named: "japan"), decription: "Bay ngay  den London voi gia thap nhat  la $119 neu ban dat ngay bay gio."),
-      local(name: "Tokyo", imageLocal: UIImage(named: "japan"), decription: "Bay ngay  den London voi gia thap nhat  la $119 neu ban dat ngay bay gio.")
+    var section2 = totalData(nameSection: "Những điạ điểm hot", local: [
+      local(name: "Tokyo", imageLocal: UIImage(named: "japan"), decription: "Bay ngay đến London với giá thấp nhất là $ 119 nếu bạn đặt ngay bây giờ."),
+      local(name: "Tokyo", imageLocal: UIImage(named: "japan"), decription: "Bay ngay đến London với giá thấp nhất là $ 119 nếu bạn đặt ngay bây giờ.")
      
     
     ])
-    var section3 = totalData(nameSection: "thanh pho dep nhat", local: [
+    var section3 = totalData(nameSection: "Thành phố đệp nhất", local: [
      
     local(name: "Turkey", imageLocal: UIImage(named: "rom3"), decription: nil),
     local(name: "Monaco", imageLocal: UIImage(named: "mocaco2"), decription: nil),

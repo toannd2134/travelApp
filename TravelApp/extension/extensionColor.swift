@@ -29,5 +29,9 @@ extension UIColor {
            let color = UIColor(red: 0.16, green: 0.22, blue: 0.22, alpha: 1.00)
            return color
        }
-    
+   
+    class func backgroundView() -> UIColor{
+        let color =  UIColor(red: 0.21, green: 0.23, blue: 0.31, alpha: 1.00)
+        return color
+    }
 }

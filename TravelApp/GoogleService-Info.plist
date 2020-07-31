@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>673825044132-3e5ctb5emfbh6evvi825aeek35ogp3to.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.673825044132-3e5ctb5emfbh6evvi825aeek35ogp3to</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCibd7gjlaXYkv1QmBtKazBgOJq_oHK_lA</string>
+	<key>GCM_SENDER_ID</key>
+	<string>673825044132</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.toannguyen.TravelApp</string>
+	<key>PROJECT_ID</key>
+	<string>fir-travel-56625</string>
+	<key>STORAGE_BUCKET</key>
+	<string>fir-travel-56625.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:673825044132:ios:167b7cf3494d50cbfc1831</string>
+	<key>DATABASE_URL</key>
+	<string>https://fir-travel-56625.firebaseio.com</string>
+</dict>
+</plist>

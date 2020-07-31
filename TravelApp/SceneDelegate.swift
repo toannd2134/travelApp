@@ -21,12 +21,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         guard let Sence = (scene as? UIWindowScene) else { return }
         window?.windowScene = Sence
-       let vc  = tabarViewController()
-//        let vc  = homeViewController()
-       
+//        let vc  = propertiViewController(collectionViewLayout:StretchyHeader())
+//        let navigation = UINavigationController(rootViewController: vc)
+//        window?.rootViewController = navigation
+        
+        
+         let vc = ViewController()
         window?.rootViewController = vc
         window?.makeKeyAndVisible()
+        
     }
+   
+        
+    
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.

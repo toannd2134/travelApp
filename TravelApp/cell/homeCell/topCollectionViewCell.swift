@@ -25,7 +25,7 @@ class topCollectionViewCell: UICollectionViewCell {
     }()
     let ferewellLabel2 : UILabel  = {
         let label  = UILabel()
-        label.text = "chào mừng bạn đã trở lại . hôm nay bạn muốn đi dâu "
+        label.text = "chào mừng bạn đã trở lại . hôm nay bạn muốn đi đâu "
         label.numberOfLines = 0
         label.font = UIFont.mainFont(font: UIFont.fontChoice.Helvetica, size: 16)
         return label
@@ -37,29 +37,45 @@ class topCollectionViewCell: UICollectionViewCell {
         label.font = UIFont.mainFont(font: UIFont.fontChoice.Helvetica, size: 16)
         return label
     }()
-    let cafeButton : UIButton = {
-       let button = UIButton()
+    let cafeButton : buttonView = {
+       let button = buttonView()
+        button.imageIcon.image = UIImage(named: "cup")
+        button.titileLabel.text = "cafe"
         button.backgroundColor = .white
-        button.setImage(UIImage(named: "cafe"), for: .normal)
+        button.layer.cornerRadius = 10
+        button.clipsToBounds = true
+        button.titileLabel.font = UIFont.mainFont(font: .Helvetica, size: 10)
         
         return button
     }()
-    let moutainButton : UIButton = {
-       let button = UIButton()
+    let moutainButton : buttonView = {
+       let button = buttonView()
+        button.imageIcon.image = UIImage(named: "moutain")
+        button.titileLabel.text  = "cắm trại"
         button.backgroundColor = .white
-        button.setImage(UIImage(named: "moutain"), for: .normal)
+        button.layer.cornerRadius = 10
+        button.clipsToBounds = true
+        button.titileLabel.font = UIFont.mainFont(font: .Helvetica, size: 10)
         return button
     }()
-    let campButton : UIButton = {
-       let button = UIButton()
+    let campButton : buttonView = {
+       let button = buttonView()
+        button.imageIcon.image = UIImage(named: "camp")
         button.backgroundColor = .white
-        button.setImage(UIImage(named: "camp"), for: .normal)
+        button.layer.cornerRadius = 10
+        button.clipsToBounds = true
+        button.titileLabel.font = UIFont.mainFont(font: .Helvetica, size: 10)
+        button.titileLabel.text  = "khám phá"
         return button
     }()
-    let greenButton : UIButton = {
-       let button = UIButton()
+    let greenButton : buttonView = {
+       let button = buttonView()
+        button.imageIcon.image = UIImage(named: "green")
+        button.titileLabel.text  = "thiên nhiên"
         button.backgroundColor = .white
-        button.setImage(UIImage(named: "green"), for: .normal)
+        button.layer.cornerRadius = 10
+        button.clipsToBounds = true
+        button.titileLabel.font = UIFont.mainFont(font: .Helvetica, size: 10)
          return button
     }()
     let stackViewButton = UIStackView()
@@ -76,13 +92,13 @@ class topCollectionViewCell: UICollectionViewCell {
        let layout = UICollectionViewFlowLayout()
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         layout.scrollDirection = .vertical
-        collection.register(tourCollectionViewCell.self, forCellWithReuseIdentifier: "tourCell")
+        collection.register(InsideHomeCollectionViewCell.self, forCellWithReuseIdentifier: "tourCell")
          collection.register(headerCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "headerView")
         return collection
         
         
     }()
-    
+    let user = HomeData()
     override func awakeFromNib() {
         super.awakeFromNib()
         addStackVIew()
@@ -121,7 +137,7 @@ class topCollectionViewCell: UICollectionViewCell {
         50,
         |-20-choiceLabel-170-|,
         30,
-        |-20-stackViewButton-20-| ~ 30,
+        |-20-stackViewButton-20-| ~ 50,
         30,
         |-20-localTexField-20-| ~ 30,
         30,
@@ -139,14 +155,13 @@ extension topCollectionViewCell : UICollectionViewDelegate ,UICollectionViewData
         return CGSize(width: UIScreen.main.bounds.width, height: 400)
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "tourCell", for: indexPath) as! tourCollectionViewCell
-        cell.backgroundColor = .clear
-        return cell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "tourCell", for: indexPath) as! InsideHomeCollectionViewCell
+       return cell
     }
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
               let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "headerView", for: indexPath) as! headerCollectionReusableView
-        header.headerview.backgroundColor = UIColor.headerColor()
-        header.headerName.text = "Tour danh cho ban "
+        header.headerview.backgroundColor = UIColor(red: 0.59, green: 0.59, blue: 0.59, alpha: 1.00)
+        header.headerName.text = "Tour dành cho bạn "
               return header
           }
        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {

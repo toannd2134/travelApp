@@ -8,7 +8,8 @@
 
 import UIKit
 import Stevia
-class topHotelCollectionViewCell: UICollectionViewCell {
+class topHotelCollectionViewCell: UICollectionViewCell{
+    var delegate : cellDelegate?
     let data = hotelData()
     let topCollection : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -50,6 +51,11 @@ extension topHotelCollectionViewCell :  UICollectionViewDelegateFlowLayout , UIC
         
         return cell
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.colCategory(indexPath)
+       
+    }
+   
     
     
     

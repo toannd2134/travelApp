@@ -18,7 +18,7 @@ struct tour {
     
     
 }
-func Data()->[tour]{
+func HomeData()->[tour]{
     let data1 = tour(bacgroundImage: UIImage(named: "travel"), nameLocation: "Calmel,California", decribe: "USA'S mos romatic destination", rate: 4.5, value: 256)
     let data2 = tour(bacgroundImage: UIImage(named: "travel2"), nameLocation: "Calmel,California", decribe: "USA'S mos romatic destination", rate: 4.5, value: 256)
 
