@@ -25,7 +25,7 @@ class RegisterViewController: UIViewController {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 20))
         textFiled.leftView = view
         textFiled.leftViewMode = .always
-        textFiled.placeholder = "ten dang nhap"
+        textFiled.placeholder = "Tên đăng nhập"
         return textFiled
     }()
     let passUser : UITextField = {
@@ -35,7 +35,7 @@ class RegisterViewController: UIViewController {
         textFiled.leftView = view
         textFiled.leftViewMode = .always
         textFiled.boderTextField(color: .mainColor(), boderWidth: 5)
-        textFiled.placeholder = "password"
+        textFiled.placeholder = "mật khẩu"
         return textFiled
     }()
     let repassword : UITextField = {
@@ -45,15 +45,22 @@ class RegisterViewController: UIViewController {
         textFiled.leftView = view
         textFiled.leftViewMode = .always
         textFiled.boderTextField(color: .mainColor(), boderWidth: 5)
-        textFiled.placeholder = "nhap lai mat khau"
+        textFiled.placeholder = "nhập lại mật khẩu"
         return textFiled
+    }()
+    let logoImage : UIImageView = {
+    let img = UIImageView()
+        img.image = UIImage(named: "logo")
+        return img
     }()
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        view.sv([signinButton,nameUser,passUser,repassword])
+        view.sv([signinButton,nameUser,passUser,repassword,logoImage])
         view.layout(
-            200,
+            100,
+            |-90-logoImage-90-| ~ 200,
+            50,
             |-30-nameUser-30-| ~ 50,
             20,
             |-30-passUser-30-| ~ 50,
@@ -67,14 +74,18 @@ class RegisterViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     @objc func signUP(){
-        guard let email = nameUser.text,let password = passUser.text else {
+        guard let email = nameUser.text,let password = passUser.text , let rePassword = repassword.text else {
             return
         }
         if isValidEmail(email){
             
             if password.count > 6 {
+                if password == rePassword {
                 FireBaseManager.Share.creatUser(email: email, password: password)
-                self.dismiss(animated: true, completion: nil)
+                let vc  = TabarViewController()
+                vc.modalPresentationStyle = .fullScreen
+                self.present(vc, animated: true, completion: nil)
+                }
             }else{
                 let alert = UIAlertController(title: "nhap sai password ", message: "Password phai lon hon 6 ki tu", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "ok", style: .cancel, handler: nil))

@@ -58,7 +58,7 @@ extension bottomHotelCollectionViewCell : UICollectionViewDelegateFlowLayout ,UI
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "bottomHotelCell", for: indexPath ) as! ReuseableCollectionViewCell
         cell.bacgroundImg.image = data[numbersection].local[indexPath.row].imageLocal
         cell.nameLabel.text = data[numbersection].local[indexPath.row].name
-        
+        cell.backgroundColor = .clear
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

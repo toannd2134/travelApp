@@ -28,12 +28,12 @@
 		5433D5D224C08D5500E34EE7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5433D5D124C08D5500E34EE7 /* ProfileViewController.swift */; };
 		5437EE7F24D2834B00C5B1D2 /* DateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5437EE7E24D2834B00C5B1D2 /* DateViewController.swift */; };
 		5437EE8124D28B4A00C5B1D2 /* PayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5437EE8024D28B4A00C5B1D2 /* PayViewController.swift */; };
-		5437EE8524D2A53300C5B1D2 /* CheckinhHoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5437EE8424D2A53300C5B1D2 /* CheckinhHoteViewController.swift */; };
 		5437EE8724D2A87900C5B1D2 /* ExtensionUITexFiled.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5437EE8624D2A87900C5B1D2 /* ExtensionUITexFiled.swift */; };
 		5442F7F624C96FCF0052DBFF /* extensionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5442F7F524C96FCF0052DBFF /* extensionButton.swift */; };
 		544533C224C5D56B00A958DC /* bottomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544533C124C5D56B00A958DC /* bottomCollectionViewCell.swift */; };
 		544B34CB24D015E90041B4F7 /* CheckingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544B34CA24D015E90041B4F7 /* CheckingViewController.swift */; };
 		544B34CD24D022DB0041B4F7 /* checkingCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544B34CC24D022DB0041B4F7 /* checkingCustomView.swift */; };
+		5451723E24D53A7100B7A9D2 /* customPay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5451723D24D53A7100B7A9D2 /* customPay.swift */; };
 		54518CB524C2A52400783FBC /* flyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54518CB424C2A52400783FBC /* flyCollectionViewCell.swift */; };
 		54518CB724C2D24900783FBC /* modelFlyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54518CB624C2D24900783FBC /* modelFlyVC.swift */; };
 		545A867324CEAE2D009D9575 /* headerPropertiesCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545A867224CEAE2D009D9575 /* headerPropertiesCollectionReusableView.swift */; };
@@ -56,6 +56,9 @@
 		5494337424D152510043BDF6 /* insideCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5494337324D152510043BDF6 /* insideCollectionViewCell.swift */; };
 		54987B3B24C58170009F5280 /* midCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54987B3A24C58170009F5280 /* midCollectionViewCell.swift */; };
 		54987B3F24C58D34009F5280 /* horizontalMidCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54987B3E24C58D34009F5280 /* horizontalMidCollectionViewCell.swift */; };
+		54BACC2024D525B1005C62B8 /* HotelCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BACC1F24D525B1005C62B8 /* HotelCollectionViewController.swift */; };
+		54BACC2224D52A35005C62B8 /* HotelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BACC2124D52A35005C62B8 /* HotelCollectionViewCell.swift */; };
+		54BACC2424D52CA6005C62B8 /* TopHotelPropertiesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BACC2324D52CA6005C62B8 /* TopHotelPropertiesCollectionViewCell.swift */; };
 		54C6AD4A24CF10B7003E8AB2 /* buttonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C6AD4924CF10B7003E8AB2 /* buttonView.swift */; };
 		54C6AD4E24CF2862003E8AB2 /* bottomHomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C6AD4D24CF2862003E8AB2 /* bottomHomeCollectionViewCell.swift */; };
 		54C6AD5224CF31F5003E8AB2 /* MoreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C6AD5124CF31F5003E8AB2 /* MoreCollectionViewCell.swift */; };
@@ -89,12 +92,12 @@
 		5433D5D124C08D5500E34EE7 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		5437EE7E24D2834B00C5B1D2 /* DateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateViewController.swift; sourceTree = "<group>"; };
 		5437EE8024D28B4A00C5B1D2 /* PayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayViewController.swift; sourceTree = "<group>"; };
-		5437EE8424D2A53300C5B1D2 /* CheckinhHoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckinhHoteViewController.swift; sourceTree = "<group>"; };
 		5437EE8624D2A87900C5B1D2 /* ExtensionUITexFiled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUITexFiled.swift; sourceTree = "<group>"; };
 		5442F7F524C96FCF0052DBFF /* extensionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionButton.swift; sourceTree = "<group>"; };
 		544533C124C5D56B00A958DC /* bottomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bottomCollectionViewCell.swift; sourceTree = "<group>"; };
 		544B34CA24D015E90041B4F7 /* CheckingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckingViewController.swift; sourceTree = "<group>"; };
 		544B34CC24D022DB0041B4F7 /* checkingCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = checkingCustomView.swift; sourceTree = "<group>"; };
+		5451723D24D53A7100B7A9D2 /* customPay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customPay.swift; sourceTree = "<group>"; };
 		54518CB424C2A52400783FBC /* flyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = flyCollectionViewCell.swift; sourceTree = "<group>"; };
 		54518CB624C2D24900783FBC /* modelFlyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = modelFlyVC.swift; sourceTree = "<group>"; };
 		545A867224CEAE2D009D9575 /* headerPropertiesCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = headerPropertiesCollectionReusableView.swift; sourceTree = "<group>"; };
@@ -117,6 +120,9 @@
 		5494337324D152510043BDF6 /* insideCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = insideCollectionViewCell.swift; sourceTree = "<group>"; };
 		54987B3A24C58170009F5280 /* midCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = midCollectionViewCell.swift; sourceTree = "<group>"; };
 		54987B3E24C58D34009F5280 /* horizontalMidCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = horizontalMidCollectionViewCell.swift; sourceTree = "<group>"; };
+		54BACC1F24D525B1005C62B8 /* HotelCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelCollectionViewController.swift; sourceTree = "<group>"; };
+		54BACC2124D52A35005C62B8 /* HotelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelCollectionViewCell.swift; sourceTree = "<group>"; };
+		54BACC2324D52CA6005C62B8 /* TopHotelPropertiesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopHotelPropertiesCollectionViewCell.swift; sourceTree = "<group>"; };
 		54C6AD4924CF10B7003E8AB2 /* buttonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = buttonView.swift; sourceTree = "<group>"; };
 		54C6AD4D24CF2862003E8AB2 /* bottomHomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bottomHomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		54C6AD5124CF31F5003E8AB2 /* MoreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -166,8 +172,8 @@
 				544B34CA24D015E90041B4F7 /* CheckingViewController.swift */,
 				5437EE7E24D2834B00C5B1D2 /* DateViewController.swift */,
 				5437EE8024D28B4A00C5B1D2 /* PayViewController.swift */,
-				5437EE8424D2A53300C5B1D2 /* CheckinhHoteViewController.swift */,
 				545E102E24D3DB3C00560854 /* RegisterViewController.swift */,
+				54BACC1F24D525B1005C62B8 /* HotelCollectionViewController.swift */,
 			);
 			path = Viewcontroller;
 			sourceTree = "<group>";
@@ -263,6 +269,7 @@
 				5433D5C924C07AB200E34EE7 /* customView.xib */,
 				54C6AD4924CF10B7003E8AB2 /* buttonView.swift */,
 				544B34CC24D022DB0041B4F7 /* checkingCustomView.swift */,
+				5451723D24D53A7100B7A9D2 /* customPay.swift */,
 			);
 			path = custom;
 			sourceTree = "<group>";
@@ -282,6 +289,8 @@
 				547772FD24C868A1009A971D /* topHotelCollectionViewCell.swift */,
 				5477730124C8821B009A971D /* midHotelCollectionViewCell.swift */,
 				5477730324C88265009A971D /* bottomHotelCollectionViewCell.swift */,
+				54BACC2124D52A35005C62B8 /* HotelCollectionViewCell.swift */,
+				54BACC2324D52CA6005C62B8 /* TopHotelPropertiesCollectionViewCell.swift */,
 			);
 			path = hotelCell;
 			sourceTree = "<group>";
@@ -466,12 +475,14 @@
 				5433D5D024C08D3B00E34EE7 /* HotelViewController.swift in Sources */,
 				544B34CB24D015E90041B4F7 /* CheckingViewController.swift in Sources */,
 				545A867924CEBBE8009D9575 /* PropertiViewController.swift in Sources */,
+				54BACC2024D525B1005C62B8 /* HotelCollectionViewController.swift in Sources */,
 				5437EE8724D2A87900C5B1D2 /* ExtensionUITexFiled.swift in Sources */,
 				5494337424D152510043BDF6 /* insideCollectionViewCell.swift in Sources */,
 				54F7A03A24CC20BC00B8F407 /* modelProfile.swift in Sources */,
 				545A867B24CEBC77009D9575 /* StretchyHeader.swift in Sources */,
 				545A867524CEB8D6009D9575 /* Extensions+UIView.swift in Sources */,
 				542665B924BDAC0F00AB4D1F /* headerCollectionReusableView.swift in Sources */,
+				54BACC2224D52A35005C62B8 /* HotelCollectionViewCell.swift in Sources */,
 				54C6AD5224CF31F5003E8AB2 /* MoreCollectionViewCell.swift in Sources */,
 				545A867324CEAE2D009D9575 /* headerPropertiesCollectionReusableView.swift in Sources */,
 				5433D5CE24C08D3000E34EE7 /* FlyViewController.swift in Sources */,
@@ -480,12 +491,14 @@
 				5433D5D224C08D5500E34EE7 /* ProfileViewController.swift in Sources */,
 				54C6AD4E24CF2862003E8AB2 /* bottomHomeCollectionViewCell.swift in Sources */,
 				545A868524CECE9A009D9575 /* MidPropertiesCollectionViewCell.swift in Sources */,
+				54BACC2424D52CA6005C62B8 /* TopHotelPropertiesCollectionViewCell.swift in Sources */,
 				54F7A03E24CC304B00B8F407 /* Profile2TableViewCell.swift in Sources */,
 				544533C224C5D56B00A958DC /* bottomCollectionViewCell.swift in Sources */,
 				54C6AD5624CF3A2E003E8AB2 /* moreHomeModel.swift in Sources */,
 				5433D5CC24C08CCA00E34EE7 /* tabarViewController.swift in Sources */,
 				54518CB724C2D24900783FBC /* modelFlyVC.swift in Sources */,
 				5437EE8124D28B4A00C5B1D2 /* PayViewController.swift in Sources */,
+				5451723E24D53A7100B7A9D2 /* customPay.swift in Sources */,
 				542665B724BD9CAB00AB4D1F /* homemodel.swift in Sources */,
 				5418DD0124BBDCCF009E5EAB /* HomeViewController.swift in Sources */,
 				5437EE7F24D2834B00C5B1D2 /* DateViewController.swift in Sources */,
@@ -495,7 +508,6 @@
 				545A868924CED9E0009D9575 /* BottomPropertiesCollectionViewCell.swift in Sources */,
 				544B34CD24D022DB0041B4F7 /* checkingCustomView.swift in Sources */,
 				5494337224D14CA80043BDF6 /* tourCollectionViewCell.swift in Sources */,
-				5437EE8524D2A53300C5B1D2 /* CheckinhHoteViewController.swift in Sources */,
 				54518CB524C2A52400783FBC /* flyCollectionViewCell.swift in Sources */,
 				541D8EC124BB3906009C3B9F /* AppDelegate.swift in Sources */,
 				54987B3F24C58D34009F5280 /* horizontalMidCollectionViewCell.swift in Sources */,

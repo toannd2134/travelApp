@@ -21,14 +21,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         guard let Sence = (scene as? UIWindowScene) else { return }
         window?.windowScene = Sence
-//        let vc  = propertiViewController(collectionViewLayout:StretchyHeader())
+//        let vc  = HotelCollectionViewController(collectionViewLayout:StretchyHeader())
 //        let navigation = UINavigationController(rootViewController: vc)
 //        window?.rootViewController = navigation
         
         
          let vc = ViewController()
         let navigationn = UINavigationController(rootViewController: vc)
-        window?.rootViewController = vc
+        window?.rootViewController = navigationn
         window?.makeKeyAndVisible()
         
     }

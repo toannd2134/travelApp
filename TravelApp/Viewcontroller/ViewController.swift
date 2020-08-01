@@ -30,7 +30,7 @@ class ViewController: UIViewController {
         texField.leftViewMode = .always
         texField.backgroundColor = .backgroundTexFiled()
         texField.layer.cornerRadius = 10
-        texField.placeholder = "Email adress"
+        texField.placeholder = "Địa chỉ Email"
         return texField
     }()
     let PasswordTexFiled : UITextField  = {
@@ -40,7 +40,7 @@ class ViewController: UIViewController {
         texField.leftViewMode = .always
         texField.layer.cornerRadius = 10
         texField.backgroundColor = .backgroundTexFiled()
-        texField.placeholder = "password"
+        texField.placeholder = "Mật khẩu"
         return texField
     }()
     let  SiginButton : UIButton = {
@@ -80,6 +80,10 @@ class ViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(willShowKeyboard(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         //đăng ký nhận thông báo khui có sự kiện ẩn bàn phím
         NotificationCenter.default.addObserver(self, selector: #selector(willHideKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        self.navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController!.navigationBar.shadowImage = UIImage()
+        self.navigationController!.navigationBar.isTranslucent = true
     }
     func addSudView(){
         view.sv([LogoImage,signinLabel,EmailTextFiled,PasswordTexFiled,SiginButton,signUP,SignUPButton])
@@ -107,14 +111,22 @@ class ViewController: UIViewController {
                 let vc = TabarViewController()
                 vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion: nil)
+                
+                
                
                 
+            }else{
+                let alert = UIAlertController(title: "sai mật khẩu hoặc password", message: "Vui long nhap lai", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "ok", style: .cancel, handler: nil))
+                self.present(alert, animated: true, completion: nil)
             }
         }
     }
     @objc func SignUP(){
         let vc = RegisterViewController()
-        self.present(vc, animated: true, completion: nil)
+       
+      
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     @objc func willShowKeyboard(_ notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
@@ -123,7 +135,7 @@ class ViewController: UIViewController {
                     
                     self.view.frame.origin.y = 0
                     // đẩy view lên một khoảng là chiều cao bàn phím
-                    self.view.frame.origin.y -= keyboardSize.height
+                    self.view.frame.origin.y -= (keyboardSize.height-100)
                 }
             }
             

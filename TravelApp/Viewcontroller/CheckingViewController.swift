@@ -17,7 +17,7 @@ class CheckingViewController: UIViewController {
         return label
     }()
     let segmentioView : UISegmentedControl = {
-      let segment = UISegmentedControl(items: ["mot chieu","khu hoi"])
+      let segment = UISegmentedControl(items: ["một chiều","khứ hồi"])
         segment.selectedSegmentIndex = 0
         segment.selectedSegmentTintColor = .mainColor()
         segment.tintColor = .white
@@ -26,14 +26,14 @@ class CheckingViewController: UIViewController {
     }()
     let startPointView : checkingCustomView  = {
         let view = checkingCustomView()
-        view.nameViewLabel.text = "diem di"
-        view.textField.placeholder = "chon dia diem"
+        view.nameViewLabel.text = "điểm đi"
+        view.textField.placeholder = "chọn địa điểm"
         return view
     }()
     let endPointView : checkingCustomView  = {
            let view = checkingCustomView()
-           view.nameViewLabel.text = "diem den"
-           view.textField.placeholder = "chon dia diem"
+           view.nameViewLabel.text = "điểm đến"
+           view.textField.placeholder = "chọn địa điểm"
            return view
        }()
     let pickLocal : UIPickerView = {
@@ -46,7 +46,7 @@ class CheckingViewController: UIViewController {
     }()
     let dateStartPicker = UIDatePicker()
     let dateEndPicker = UIDatePicker()
-    let local  = ["Ha noi" ,"Ho chi minh","da nang","vungtau"]
+    let local  = ["Hà nội" ,"Hồ chí minh","Dà nẵng","Vũng tàu"]
     let DateStartView : checkingCustomView  = {
         let view = checkingCustomView()
         view.nameViewLabel.text = "Ngay den"
@@ -56,22 +56,22 @@ class CheckingViewController: UIViewController {
     }()
     let DateEndView : checkingCustomView  = {
            let view = checkingCustomView()
-           view.nameViewLabel.text = "Ngay di"
-           view.textField.placeholder = "chon ngay"
+           view.nameViewLabel.text = "Ngày di"
+           view.textField.placeholder = "chọn ngày"
           
            return view
        }()
     let peopleView : checkingCustomView  = {
         let view = checkingCustomView()
-        view.nameViewLabel.text = "so luong nguoi"
-        view.textField.placeholder = "so luong"
-       
+        view.nameViewLabel.text = "số luợng nguời"
+        view.textField.placeholder = "số luợng"
+    
        
         return view
     }()
     let payButton : UIButton = {
         let button = UIButton()
-        button.setTitle("Thanh toan", for: .normal)
+        button.setTitle("Thanh toán", for: .normal)
         button.layer.cornerRadius = 20
         button.clipsToBounds = true
         button.backgroundColor = .mainColor()
@@ -79,6 +79,7 @@ class CheckingViewController: UIViewController {
         return button
     }()
      var selectedTextField: UITextField?
+    var nameuser : String?
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -96,9 +97,13 @@ class CheckingViewController: UIViewController {
         endPointView.textField.delegate = self
         DateStartView.textField.delegate = self
         DateEndView.textField.delegate = self
-        
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(tapSuperView))
+        self.view.addGestureRecognizer(gesture)
         
     }
+    @objc func tapSuperView(){
+    self.view.endEditing(true)
+         }
     @objc func willShowKeyboard1( _ notification: NSNotification ){
            // tính kích thước bàn phím
            if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
@@ -212,8 +217,26 @@ class CheckingViewController: UIViewController {
     }
     @objc func pushPay(){
      let vc  = PayViewController()
-        let navigation = UINavigationController(rootViewController: vc)
+        guard  let startPoint = startPointView.textField.text,let endPoint = endPointView.textField.text,let startDay = DateStartView.textField.text , let endDate = DateEndView.textField.text, let number = peopleView.textField.text else {
+             return
+        }
+        vc.startPontLable.SecondLabel.text = startPoint
+        vc.endPontLabel.SecondLabel.text = endPoint
+        vc.dayStartLabel.SecondLabel.text = startDay
+        vc.dayEndLabel.SecondLabel.text = endDate
+        vc.numberLabel.SecondLabel.text = number
+        NotificationCenter.default
+         .addObserver(self,
+                      selector:#selector(loginSuccess(_:)),
+        name: NSNotification.Name ("pushName"),object: nil)
+        
+        
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    @objc func loginSuccess(_ notification: Notification) {
+        if let data =  notification.userInfo as? [String:String] {
+            print(data["name"])
+        }
     }
     @objc func startcomfrimButton(){
 //        self.view.endEditing(true)
