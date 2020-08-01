@@ -41,6 +41,7 @@ class ViewController: UIViewController {
         texField.layer.cornerRadius = 10
         texField.backgroundColor = .backgroundTexFiled()
         texField.placeholder = "Mật khẩu"
+        texField.isSecureTextEntry = true
         return texField
     }()
     let  SiginButton : UIButton = {
